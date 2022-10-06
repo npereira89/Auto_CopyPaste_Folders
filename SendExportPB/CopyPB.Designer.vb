@@ -22,8 +22,8 @@ Partial Class CopyPB
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.to_copy = New System.Windows.Forms.Label()
+        Me.to_transf = New System.Windows.Forms.Label()
         Me.bt_transf = New System.Windows.Forms.Button()
         Me.folder_copy = New System.Windows.Forms.FolderBrowserDialog()
         Me.folder_paste = New System.Windows.Forms.FolderBrowserDialog()
@@ -33,23 +33,23 @@ Partial Class CopyPB
         Me.search_folder_paste = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Label1
+        'to_copy
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(22, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 15)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "To Copy"
+        Me.to_copy.AutoSize = True
+        Me.to_copy.Location = New System.Drawing.Point(22, 22)
+        Me.to_copy.Name = "to_copy"
+        Me.to_copy.Size = New System.Drawing.Size(50, 15)
+        Me.to_copy.TabIndex = 0
+        Me.to_copy.Text = "To Copy"
         '
-        'Label2
+        'to_transf
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 51)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 15)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "To Transfer"
+        Me.to_transf.AutoSize = True
+        Me.to_transf.Location = New System.Drawing.Point(10, 51)
+        Me.to_transf.Name = "to_transf"
+        Me.to_transf.Size = New System.Drawing.Size(63, 15)
+        Me.to_transf.TabIndex = 1
+        Me.to_transf.Text = "To Transfer"
         '
         'bt_transf
         '
@@ -57,15 +57,14 @@ Partial Class CopyPB
         Me.bt_transf.Name = "bt_transf"
         Me.bt_transf.Size = New System.Drawing.Size(181, 66)
         Me.bt_transf.TabIndex = 2
-        Me.bt_transf.Text = "Copia"
+        Me.bt_transf.Text = "Inicia a cópia"
         Me.bt_transf.UseVisualStyleBackColor = True
+        Me.bt_transf.UseWaitCursor = True
         '
         'folder_copy
         '
-        Me.folder_copy.Description = "ss"
-        Me.folder_copy.RootFolder = System.Environment.SpecialFolder.CommonDesktopDirectory
+        Me.folder_copy.RootFolder = System.Environment.SpecialFolder.DesktopDirectory
         Me.folder_copy.SelectedPath = "C:\Users\3100945\Desktop"
-        Me.folder_copy.UseDescriptionForTitle = True
         '
         'folder_paste
         '
@@ -77,16 +76,21 @@ Partial Class CopyPB
         'path_local_copy
         '
         Me.path_local_copy.AccessibleRole = System.Windows.Forms.AccessibleRole.Text
+        Me.path_local_copy.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.path_local_copy.Location = New System.Drawing.Point(74, 19)
         Me.path_local_copy.Name = "path_local_copy"
+        Me.path_local_copy.ReadOnly = True
         Me.path_local_copy.Size = New System.Drawing.Size(218, 23)
         Me.path_local_copy.TabIndex = 3
+        Me.path_local_copy.Text = "ds"
         '
         'path_local_paste
         '
         Me.path_local_paste.AccessibleRole = System.Windows.Forms.AccessibleRole.Text
+        Me.path_local_paste.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.path_local_paste.Location = New System.Drawing.Point(74, 48)
         Me.path_local_paste.Name = "path_local_paste"
+        Me.path_local_paste.ReadOnly = True
         Me.path_local_paste.Size = New System.Drawing.Size(218, 23)
         Me.path_local_paste.TabIndex = 4
         '
@@ -118,8 +122,8 @@ Partial Class CopyPB
         Me.Controls.Add(Me.path_local_paste)
         Me.Controls.Add(Me.path_local_copy)
         Me.Controls.Add(Me.bt_transf)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.to_transf)
+        Me.Controls.Add(Me.to_copy)
         Me.Name = "CopyPB"
         Me.Text = "Copia Repositorio PowerBuilder OpenSGC"
         Me.ResumeLayout(False)
@@ -127,7 +131,7 @@ Partial Class CopyPB
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents to_copy As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents bt_transf As Button
     Friend WithEvents path_local_copy As TextBox
@@ -136,4 +140,5 @@ Partial Class CopyPB
     Friend WithEvents search_folder_paste As Button
     Public WithEvents folder_copy As FolderBrowserDialog
     Public WithEvents folder_paste As FolderBrowserDialog
+    Friend WithEvents to_transf As Label
 End Class
