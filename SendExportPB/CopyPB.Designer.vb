@@ -22,6 +22,7 @@ Partial Class CopyPB
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CopyPB))
         Me.to_copy = New System.Windows.Forms.Label()
         Me.to_transf = New System.Windows.Forms.Label()
         Me.bt_transf = New System.Windows.Forms.Button()
@@ -31,6 +32,11 @@ Partial Class CopyPB
         Me.path_local_paste = New System.Windows.Forms.TextBox()
         Me.search_folder_copy = New System.Windows.Forms.Button()
         Me.search_folder_paste = New System.Windows.Forms.Button()
+        Me.copy_process = New System.ComponentModel.BackgroundWorker()
+        Me.perc_copy_complete = New System.Windows.Forms.Label()
+        Me.bt_stop_transf = New System.Windows.Forms.Button()
+        Me.progesso_copy = New System.Windows.Forms.ProgressBar()
+        Me.estado_operacao = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'to_copy
@@ -53,9 +59,9 @@ Partial Class CopyPB
         '
         'bt_transf
         '
-        Me.bt_transf.Location = New System.Drawing.Point(74, 95)
+        Me.bt_transf.Location = New System.Drawing.Point(89, 180)
         Me.bt_transf.Name = "bt_transf"
-        Me.bt_transf.Size = New System.Drawing.Size(181, 66)
+        Me.bt_transf.Size = New System.Drawing.Size(61, 40)
         Me.bt_transf.TabIndex = 2
         Me.bt_transf.Text = "Inicia a cópia"
         Me.bt_transf.UseVisualStyleBackColor = True
@@ -82,7 +88,6 @@ Partial Class CopyPB
         Me.path_local_copy.ReadOnly = True
         Me.path_local_copy.Size = New System.Drawing.Size(218, 23)
         Me.path_local_copy.TabIndex = 3
-        Me.path_local_copy.Text = "ds"
         '
         'path_local_paste
         '
@@ -112,11 +117,55 @@ Partial Class CopyPB
         Me.search_folder_paste.Text = "..."
         Me.search_folder_paste.UseVisualStyleBackColor = True
         '
+        'copy_process
+        '
+        Me.copy_process.WorkerReportsProgress = True
+        Me.copy_process.WorkerSupportsCancellation = True
+        '
+        'perc_copy_complete
+        '
+        Me.perc_copy_complete.AutoSize = True
+        Me.perc_copy_complete.Location = New System.Drawing.Point(51, 106)
+        Me.perc_copy_complete.Name = "perc_copy_complete"
+        Me.perc_copy_complete.Size = New System.Drawing.Size(17, 15)
+        Me.perc_copy_complete.TabIndex = 7
+        Me.perc_copy_complete.Text = "%"
+        '
+        'bt_stop_transf
+        '
+        Me.bt_stop_transf.Location = New System.Drawing.Point(156, 180)
+        Me.bt_stop_transf.Name = "bt_stop_transf"
+        Me.bt_stop_transf.Size = New System.Drawing.Size(61, 40)
+        Me.bt_stop_transf.TabIndex = 8
+        Me.bt_stop_transf.Text = "Stop a cópia"
+        Me.bt_stop_transf.UseVisualStyleBackColor = True
+        Me.bt_stop_transf.UseWaitCursor = True
+        '
+        'progesso_copy
+        '
+        Me.progesso_copy.Location = New System.Drawing.Point(74, 98)
+        Me.progesso_copy.Name = "progesso_copy"
+        Me.progesso_copy.Size = New System.Drawing.Size(218, 23)
+        Me.progesso_copy.TabIndex = 9
+        '
+        'estado_operacao
+        '
+        Me.estado_operacao.AutoSize = True
+        Me.estado_operacao.Location = New System.Drawing.Point(89, 147)
+        Me.estado_operacao.Name = "estado_operacao"
+        Me.estado_operacao.Size = New System.Drawing.Size(172, 15)
+        Me.estado_operacao.TabIndex = 10
+        Me.estado_operacao.Text = "Introduza os caminhos a copiar"
+        '
         'CopyPB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(378, 179)
+        Me.ClientSize = New System.Drawing.Size(368, 248)
+        Me.Controls.Add(Me.estado_operacao)
+        Me.Controls.Add(Me.progesso_copy)
+        Me.Controls.Add(Me.bt_stop_transf)
+        Me.Controls.Add(Me.perc_copy_complete)
         Me.Controls.Add(Me.search_folder_paste)
         Me.Controls.Add(Me.search_folder_copy)
         Me.Controls.Add(Me.path_local_paste)
@@ -124,8 +173,10 @@ Partial Class CopyPB
         Me.Controls.Add(Me.bt_transf)
         Me.Controls.Add(Me.to_transf)
         Me.Controls.Add(Me.to_copy)
+        Me.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CopyPB"
-        Me.Text = "Copia Repositorio PowerBuilder OpenSGC"
+        Me.Text = "Copia Export PB OpenSGC"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -141,4 +192,9 @@ Partial Class CopyPB
     Public WithEvents folder_copy As FolderBrowserDialog
     Public WithEvents folder_paste As FolderBrowserDialog
     Friend WithEvents to_transf As Label
+    Friend WithEvents copy_process As System.ComponentModel.BackgroundWorker
+    Friend WithEvents perc_copy_complete As Label
+    Friend WithEvents bt_stop_transf As Button
+    Friend WithEvents progesso_copy As ProgressBar
+    Friend WithEvents estado_operacao As Label
 End Class
