@@ -28,6 +28,7 @@ Public Class CopyPB
         bt_transf.Enabled = False
         bt_stop_transf.Enabled = True
         estado_operacao.Text = "Em Progresso…"
+        estado_operacao.Visible = True
         progesso_copy.Value = 0
         progesso_copy.Visible = True
         copy_process.RunWorkerAsync()
@@ -45,9 +46,10 @@ Public Class CopyPB
     Private Sub copy_process_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles copy_process.RunWorkerCompleted
         ' ----- Termina.
         If (e.Cancelled = True) Then
-            estado_operacao.Text = "Operação Cancelada."
+            estado_operacao.Text = "Operação Cancelada!!"
         Else
-            estado_operacao.Text = "Operação Completa."
+            estado_operacao.Text = "Operação Completa!!"
+            perc_copy_complete.Visible = False
         End If
 
         progesso_copy.Visible = False
