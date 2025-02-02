@@ -28,10 +28,12 @@ Public Class CopyPB
         bt_transf.Enabled = False
         bt_stop_transf.Enabled = True
         estado_operacao.Text = "Em Progresso…"
+        estado_operacao.Visible = True
         progesso_copy.Value = 0
         progesso_copy.Visible = True
         copy_process.RunWorkerAsync()
         My.Computer.FileSystem.CopyDirectory(path_local_copy.Text, path_local_paste.Text, True)
+        MessageBox.Show("Cópia Finalizada com Sucesso", "Cópia Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
 
     End Sub
