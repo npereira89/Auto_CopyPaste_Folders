@@ -34,7 +34,6 @@ Public Class CopyPB
         copy_process.RunWorkerAsync()
         My.Computer.FileSystem.CopyDirectory(path_local_copy.Text, path_local_paste.Text, True)
 
-
     End Sub
 
     Private Sub copy_process_ProgressChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ProgressChangedEventArgs) Handles copy_process.ProgressChanged
