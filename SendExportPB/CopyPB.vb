@@ -23,6 +23,7 @@
     Private Sub bt_transf_Click(sender As Object, e As EventArgs) Handles bt_transf.Click
 
         My.Computer.FileSystem.CopyDirectory(path_local_copy.Text, path_local_paste.Text, True)
+        MessageBox.Show("Cópia Finalizada com Sucesso", "Cópia Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 End Class
