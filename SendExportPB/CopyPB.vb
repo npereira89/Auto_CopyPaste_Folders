@@ -33,7 +33,6 @@ Public Class CopyPB
         progesso_copy.Visible = True
         copy_process.RunWorkerAsync()
         My.Computer.FileSystem.CopyDirectory(path_local_copy.Text, path_local_paste.Text, True)
-        MessageBox.Show("Cópia Finalizada com Sucesso", "Cópia Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
