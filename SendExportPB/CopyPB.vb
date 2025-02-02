@@ -35,7 +35,6 @@ Public Class CopyPB
         My.Computer.FileSystem.CopyDirectory(path_local_copy.Text, path_local_paste.Text, True)
         MessageBox.Show("Cópia Finalizada com Sucesso", "Cópia Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-
     End Sub
 
     Private Sub copy_process_ProgressChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ProgressChangedEventArgs) Handles copy_process.ProgressChanged
@@ -47,9 +46,10 @@ Public Class CopyPB
     Private Sub copy_process_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles copy_process.RunWorkerCompleted
         ' ----- Termina.
         If (e.Cancelled = True) Then
-            estado_operacao.Text = "Operação Cancelada."
+            estado_operacao.Text = "Operação Cancelada!!"
         Else
-            estado_operacao.Text = "Operação Completa."
+            estado_operacao.Text = "Operação Completa!!"
+            perc_copy_complete.Visible = False
         End If
 
         progesso_copy.Visible = False
