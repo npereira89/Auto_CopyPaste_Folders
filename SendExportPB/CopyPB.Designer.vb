@@ -156,6 +156,7 @@ Partial Class CopyPB
         Me.estado_operacao.Size = New System.Drawing.Size(172, 15)
         Me.estado_operacao.TabIndex = 10
         Me.estado_operacao.Text = "Introduza os caminhos a copiar"
+        Me.estado_operacao.Visible = False
         '
         'CopyPB
         '
@@ -176,7 +177,7 @@ Partial Class CopyPB
         Me.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CopyPB"
-        Me.Text = "Copia Export PB OpenSGC"
+        Me.Text = "Copia Export Folders"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
