@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b6c65004-63dd-442e-bd38-3b78b002bce3)# REPOSITORY PYTHON #
+# REPOSITORY PYTHON #
 
  ## MAIN ACHIEVE ##
 
